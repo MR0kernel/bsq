@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-# define BUFF_SIZE 2048
+# define BUFF_SIZE 4096
 
 int	str_len(char *c)
 {
@@ -23,7 +23,7 @@ void	file_open(char *path)
 
 	i = 0;
 	file_fd = open(path, O_RDONLY);
-	while ((ret = read(file_fd, tmp, 1))){
+	while ((ret = read(file_fd, tmp, BUFF_SIZE))){
 		i += ret;
 	}
 	close(file_fd);
