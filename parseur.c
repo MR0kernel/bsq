@@ -15,7 +15,7 @@ void	file_open(char *path)
 {
 	int file_fd;
 	int ret;
-	char tmp[1];
+	char tmp[BUFF_SIZE];
 	char *buffer;
 	char r;
 	int x;
@@ -28,11 +28,10 @@ void	file_open(char *path)
 	}
 	close(file_fd);
 	buffer = (char *)malloc(sizeof (char *) * i);
-		if (!buffer)
-			return ;
+	if (!buffer)
+		return ;
 	file_fd = open(path, O_RDONLY);
 	r = read(file_fd, buffer, i);
-	printf("%c",buffer[x]);
 	for (int y = 0; y < i; y++)
 		printf("%c",buffer[y]);
 
