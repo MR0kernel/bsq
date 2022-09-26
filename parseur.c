@@ -11,7 +11,7 @@ int	str_len(char *c)
 	while (c[i++])
 	return (i);
 }
-void	file_open(char *path)
+char	*file_open(char *path)
 {
 	int file_fd;
 	int ret;
@@ -32,9 +32,7 @@ void	file_open(char *path)
 		return ;
 	file_fd = open(path, O_RDONLY);
 	r = read(file_fd, buffer, i);
-	for (int y = 0; y < i; y++)
-		printf("%c",buffer[y]);
-
+	return(buffer);
 }
 
 int main(int argc, char **argv)
